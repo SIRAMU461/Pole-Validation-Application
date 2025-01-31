@@ -1,0 +1,29 @@
+# Server Port
+server.port=8081
+
+# Spring Application Name
+spring.application.name=User-Service
+
+# Eureka Configuration
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+
+# Database Configuration (MySQL)
+spring.datasource.url=jdbc:mysql://localhost:3306/user-service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=R@muvenky07
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+
+# Hibernate Properties
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+# SpringDoc Configuration
+springdoc.swagger-ui.path=/swagger-ui.html
+spring.main.allow-circular-references=true
+
+# JWT Configuration (if you plan to use JWT authentication)
+# jwt.secret=@33u838392020@##
+# jwt.expiration=900000

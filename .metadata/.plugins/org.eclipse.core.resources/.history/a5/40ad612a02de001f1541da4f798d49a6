@@ -1,0 +1,5 @@
+package com.pva.user.entity;
+
+public enum Status {
+
+}

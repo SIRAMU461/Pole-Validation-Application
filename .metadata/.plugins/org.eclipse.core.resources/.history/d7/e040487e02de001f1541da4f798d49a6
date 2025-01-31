@@ -1,0 +1,9 @@
+package com.pva.user.entity;
+
+public enum companyName {
+	CAPGEMINI,
+	NOKIA,
+	MOVATE,
+	USTGLOBAL;
+
+}

@@ -1,0 +1,12 @@
+package com.pva.pole.enums;
+
+public enum SupportStructure {
+	CrossArm ,
+	GuyAnchor,
+	DownGuy,
+	OverheadGuy,
+	Wood,
+	Glass,
+	None
+
+}

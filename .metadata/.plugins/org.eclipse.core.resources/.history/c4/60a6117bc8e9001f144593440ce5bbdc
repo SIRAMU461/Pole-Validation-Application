@@ -1,0 +1,34 @@
+package com.pva.pole.entity;
+
+import com.pva.pole.enums.Attachment;
+import com.pva.pole.enums.Remarks;
+import com.pva.pole.enums.SupportStructure;
+import com.pva.pole.enums.category;
+
+public class Pole {
+	
+	private long id ;
+	
+	private String  poleId;
+	
+	private category category;
+	
+	private SupportStructure  supportStructure;
+	
+	private double longitude ;
+	
+	private double latitude;
+	
+	private Attachment attachment ;
+	
+	private Remarks remarks;
+	
+	private String additionalRemarks;
+	
+	
+	
+	
+	
+	
+
+}

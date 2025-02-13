@@ -1,9 +1,0 @@
-package com.pva.user.entity;
-
-public enum role {
-
-	EMPLOYEE,
-	MANAGER,
-	ADMIN;
-
-}

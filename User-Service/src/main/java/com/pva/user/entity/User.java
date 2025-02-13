@@ -2,6 +2,10 @@ package com.pva.user.entity;
 
 import java.security.Timestamp;
 
+import com.pva.user.enums.CompanyName;
+import com.pva.user.enums.Role;
+import com.pva.user.enums.Status;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 

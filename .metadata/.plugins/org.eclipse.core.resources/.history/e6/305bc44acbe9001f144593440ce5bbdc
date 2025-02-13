@@ -1,0 +1,5 @@
+package com.pva.pole.dto;
+
+public class PoleDTO {
+
+}

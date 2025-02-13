@@ -1,0 +1,13 @@
+package com.pva.pole.entity;
+
+public class Pole {
+	
+	private long id ;
+	
+	private long poleId;
+	
+	
+	
+	
+
+}

@@ -1,8 +1,9 @@
 package com.pva.user.dto;
 
-import com.pva.user.entity.CompanyName;
-import com.pva.user.entity.Role;
-import com.pva.user.entity.Status;
+import com.pva.user.enums.CompanyName;
+import com.pva.user.enums.Role;
+import com.pva.user.enums.Status;
+
 import jakarta.validation.constraints.*;
 
 public class UserDTO {
@@ -33,4 +34,14 @@ public class UserDTO {
 
     @NotNull(message = "Status cannot be null")
     private Status status = Status.ACTIVE;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

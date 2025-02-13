@@ -1,0 +1,5 @@
+package com.pva.pole.enums;
+
+public enum category {
+
+}

@@ -1,0 +1,135 @@
+package com.pva.user.dto;
+
+import com.pva.user.enums.CompanyName;
+import com.pva.user.enums.Role;
+import com.pva.user.enums.Status;
+
+import jakarta.validation.constraints.*;
+
+public class UserDTO {
+
+    private Long userId;
+    
+    private Long employeeId;
+
+    @NotBlank(message = "First Name cannot be empty")
+    @Size(min = 2, max = 50, message = "First Name must be between 2 and 50 characters")
+    private String firstName;
+
+    @NotBlank(message = "Last Name cannot be empty")
+    @Size(min = 2, max = 50, message = "Last Name must be between 2 and 50 characters")
+    private String lastName;
+
+    @NotBlank(message = "Business Email cannot be empty")
+    @Email(message = "Invalid email format")
+    private String businessMail;
+
+    @NotBlank(message = "Phone Number cannot be empty")
+    @Pattern(regexp = "^[0-9]{10}$", message = "Phone Number must be exactly 10 digits")
+    private String phoneNumber;
+
+    @NotNull(message = "Role cannot be null")
+    private Role role;
+
+    @NotNull(message = "Company Name cannot be null")
+    private CompanyName companyName;
+
+    @NotNull(message = "Status cannot be null")
+    private Status status = Status.ACTIVE;
+
+	public UserDTO() {
+		super();
+	}
+
+	public UserDTO(Long userId,
+			@NotBlank(message = "First Name cannot be empty") @Size(min = 2, max = 50, message = "First Name must be between 2 and 50 characters") String firstName,
+			@NotBlank(message = "Last Name cannot be empty") @Size(min = 2, max = 50, message = "Last Name must be between 2 and 50 characters") String lastName,
+			@NotBlank(message = "Business Email cannot be empty") @Email(message = "Invalid email format") String businessMail,
+			@NotBlank(message = "Phone Number cannot be empty") @Pattern(regexp = "^[0-9]{10}$", message = "Phone Number must be exactly 10 digits") String phoneNumber,
+			@NotNull(message = "Role cannot be null") Role role,
+			@NotNull(message = "Company Name cannot be null") CompanyName companyName,
+			@NotNull(message = "Status cannot be null") Status status) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.businessMail = businessMail;
+		this.phoneNumber = phoneNumber;
+		this.role = role;
+		this.companyName = companyName;
+		this.status = status;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getBusinessMail() {
+		return businessMail;
+	}
+
+	public void setBusinessMail(String businessMail) {
+		this.businessMail = businessMail;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public CompanyName getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(CompanyName companyName) {
+		this.companyName = companyName;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", businessMail="
+				+ businessMail + ", phoneNumber=" + phoneNumber + ", role=" + role + ", companyName=" + companyName
+				+ ", status=" + status + "]";
+	}
+     
+    
+}

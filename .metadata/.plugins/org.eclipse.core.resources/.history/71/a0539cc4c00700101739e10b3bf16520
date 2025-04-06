@@ -1,0 +1,5 @@
+package com.pva.user.serviceimpl;
+
+public class UserServiceImpl {
+
+}

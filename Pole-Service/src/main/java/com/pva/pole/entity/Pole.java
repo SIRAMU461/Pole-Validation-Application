@@ -127,15 +127,5 @@ public class Pole {
 				+ supportStructure + ", longitude=" + longitude + ", latitude=" + latitude + ", attachment="
 				+ attachment + ", remarks=" + remarks + ", additionalRemarks=" + additionalRemarks + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

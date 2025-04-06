@@ -1,0 +1,49 @@
+package com.pva.user.controller;
+
+import com.pva.user.dto.UserDTO;
+import com.pva.user.enums.CompanyName;
+import com.pva.user.enums.Role;
+import com.pva.user.enums.Status;
+import com.pva.user.service.UserService;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping("/createUser")
+    public ResponseEntity<UserDTO> createUser(
+            @RequestParam String employeeId,
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String businessMail,
+            @RequestParam String password,
+            @RequestParam String phoneNumber,
+            @RequestParam Role role,
+            @RequestParam CompanyName companyName,
+            @RequestParam(required = false, defaultValue = "ACTIVE") Status status
+          
+    ) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setEmployeeId(employeeId);
+        userDTO.setFirstName(firstName);
+        userDTO.setLastName(lastName);
+        userDTO.setBusinessMail(businessMail);
+        userDTO.setPhoneNumber(phoneNumber);
+        userDTO.setRole(role);
+        userDTO.setCompanyName(companyName);
+        userDTO.setStatus(status);
+        userDTO.setPassword(password); 
+
+        UserDTO createdUser = userService.createUser(userDTO);
+        return ResponseEntity.ok(createdUser);
+    }
+}

@@ -1,0 +1,91 @@
+package com.pva.user.vaildation;
+
+import com.pva.user.dto.UserDTO;
+import com.pva.user.exception.InvalidInputException;
+import com.pva.user.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class UserValidator {
+
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserValidator(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public void validate(UserDTO userDTO) {
+        if (!userDTO.getEmployeeId().matches("^[0-9]{8}$")) {
+            throw new InvalidInputException("Employee ID must be exactly 8 digits and numeric only.");
+        }
+
+        if (!userDTO.getPhoneNumber().matches("^[0-9]{10}$")) {
+            throw new InvalidInputException("Phone number must be exactly 10 digits.");
+        }
+
+        if (!userDTO.getBusinessMail().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            throw new InvalidInputException("Invalid email format.");
+        }
+
+        if (userDTO.getFirstName().length() < 2 || userDTO.getFirstName().length() > 50) {
+            throw new InvalidInputException("First name must be between 2 and 50 characters.");
+        }
+
+        if (userDTO.getLastName().length() < 2 || userDTO.getLastName().length() > 50) {
+            throw new InvalidInputException("Last name must be between 2 and 50 characters.");
+        }
+
+        if (userDTO.getRole() == null) {
+            throw new InvalidInputException("Role cannot be null.");
+        }
+
+        if (userDTO.getCompanyName() == null) {
+            throw new InvalidInputException("Company name cannot be null.");
+        }
+
+        if (userDTO.getStatus() == null) {
+            throw new InvalidInputException("Status cannot be null.");
+        }
+
+        if (userRepository.existsByEmployeeId(userDTO.getEmployeeId())) {
+            throw new InvalidInputException("Employee ID already exists.");
+        }
+
+      
+        if (userRepository.existsByBusinessMail(userDTO.getBusinessMail())) {
+            throw new InvalidInputException("Business mail already exists.");
+        }
+        
+        if (userRepository.existsByPhoneNumber(userDTO.getPhoneNumber())) {
+            throw new InvalidInputException("Phone number already exists.");
+        }
+        
+          // Capgemini Company -specific email domain check
+        if (userDTO.getCompanyName().name().equalsIgnoreCase("Capgemini") &&
+                !userDTO.getBusinessMail().toLowerCase().endsWith("@capgemini.com")) {
+            throw new InvalidInputException("Business mail must end with '@capgemini.com' for Capgemini employees.");
+        }
+        
+        // Nokia Company -specific email domain check
+        if (userDTO.getCompanyName().name().equalsIgnoreCase("Nokia") &&
+                !userDTO.getBusinessMail().toLowerCase().endsWith("@nokia.com")) {
+            throw new InvalidInputException("Business mail must end with '@nokia.com' for Nokia employees.");
+        }
+        
+        // Movate Company -specific email domain check
+        if (userDTO.getCompanyName().name().equalsIgnoreCase("Movate") &&
+                !userDTO.getBusinessMail().toLowerCase().endsWith("@movate.com")) {
+            throw new InvalidInputException("Business mail must end with '@movate.com' for Movate employees.");
+        }
+        
+        // Capgemini Company -specific email domain check
+        if (userDTO.getCompanyName().name().equalsIgnoreCase("Capgemini") &&
+                !userDTO.getBusinessMail().toLowerCase().endsWith("@capgemini.com")) {
+            throw new InvalidInputException("Business mail must end with '@capgemini.com' for Capgemini employees.");
+        }
+
+
+    }
+}

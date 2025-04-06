@@ -1,0 +1,53 @@
+package com.pva.user.serviceimpl;
+
+import org.springframework.stereotype.Service;
+
+import com.pva.user.dto.UserDTO;
+import com.pva.user.entity.User;
+import com.pva.user.repository.UserRepository;
+import com.pva.user.service.UserService;
+
+
+@Service
+public class UserServiceImpl  implements UserService{
+
+	private final UserRepository userRepository ;
+
+	public UserServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
+	@Override
+	public UserDTO createUser(UserDTO userDTO) {
+		
+		User user = new User();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

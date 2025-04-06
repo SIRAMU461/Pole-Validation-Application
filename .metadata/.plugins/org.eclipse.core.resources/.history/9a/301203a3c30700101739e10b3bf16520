@@ -1,0 +1,70 @@
+package com.pva.user.serviceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pva.user.dto.UserDTO;
+import com.pva.user.entity.User;
+import com.pva.user.repository.UserRepository;
+import com.pva.user.service.UserService;
+
+
+@Service
+public class UserServiceImpl  implements UserService{
+
+
+	private final UserRepository userRepository ;
+
+
+	public UserServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
+	@Override
+	public UserDTO createUser(UserDTO userDTO) {
+		
+		User user = new User();
+		
+		user.setEmployeeId(userDTO.getEmployeeId());
+		user.setFristName(userDTO.getFirstName());
+		user.setLastName(userDTO.getLastName());
+		user.setBusinessMail(userDTO.getBusinessMail());
+		user.setPhoneNumber(userDTO.getPhoneNumber());
+		user.setRole(userDTO.getRole());
+		user.setCompanyName(userDTO.getCompanyName());
+		user.setStatus(userDTO.getStatus());
+		
+		User savedUser = userRepository.save(user);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

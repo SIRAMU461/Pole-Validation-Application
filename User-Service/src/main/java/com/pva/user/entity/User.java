@@ -1,141 +1,170 @@
 package com.pva.user.entity;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import com.pva.user.enums.CompanyName;
 import com.pva.user.enums.Role;
 import com.pva.user.enums.Status;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class User {
-	@Id
-	private Long userId;
-	
-	private String fristName;
-	
-	private String lastName;
-	
-	private String businessMail;
-	
-	private String phoneNumber;
-	
-	private Role role;
-	
-	private CompanyName companyName;
-	
-	private Timestamp createdAt;
-	
-	private Timestamp updateAt;
-	
-	private Status status;
 
-	public User() {
-		super();
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
 
-	public User(Long userId, String fristName, String lastName, String businessMail, String phoneNumber, Role role,
-			CompanyName companyName, Timestamp createdAt, Timestamp updateAt, Status status) {
-		super();
-		this.userId = userId;
-		this.fristName = fristName;
-		this.lastName = lastName;
-		this.businessMail = businessMail;
-		this.phoneNumber = phoneNumber;
-		this.role = role;
-		this.companyName = companyName;
-		this.createdAt = createdAt;
-		this.updateAt = updateAt;
-		this.status = status;
-	}
+    private String employeeId;
 
-	public Long getUserId() {
-		return userId;
-	}
+    private String fristName;
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+    private String lastName;
 
-	public String getFristName() {
-		return fristName;
-	}
+    private String businessMail;
 
-	public void setFristName(String fristName) {
-		this.fristName = fristName;
-	}
+    private String phoneNumber;
 
-	public String getLastName() {
-		return lastName;
-	}
+    private String password; // ✅ NEW FIELD
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    private Role role;
 
-	public String getBusinessMail() {
-		return businessMail;
-	}
+    private CompanyName companyName;
 
-	public void setBusinessMail(String businessMail) {
-		this.businessMail = businessMail;
-	}
+    private Timestamp createdAt;
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    private Timestamp updateAt;
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    private Status status;
 
-	public Role getRole() {
-		return role;
-	}
+    public User() {
+        super();
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
+    public User(Long userId, String employeeId, String fristName, String lastName, String businessMail,
+                String phoneNumber, String password, Role role, CompanyName companyName,
+                Timestamp createdAt, Timestamp updateAt, Status status) {
+        super();
+        this.userId = userId;
+        this.employeeId = employeeId;
+        this.fristName = fristName;
+        this.lastName = lastName;
+        this.businessMail = businessMail;
+        this.phoneNumber = phoneNumber;
+        this.password = password; 
+        this.role = role;
+        this.companyName = companyName;
+        this.createdAt = createdAt;
+        this.updateAt = updateAt;
+        this.status = status;
+    }
 
-	public CompanyName getCompanyName() {
-		return companyName;
-	}
+    // Getters and setters
 
-	public void setCompanyName(CompanyName companyName) {
-		this.companyName = companyName;
-	}
+    public Long getUserId() {
+        return userId;
+    }
 
-	public Timestamp getCreatedAt() {
-		return createdAt;
-	}
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
-	}
+    public String getEmployeeId() {
+        return employeeId;
+    }
 
-	public Timestamp getUpdateAt() {
-		return updateAt;
-	}
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 
-	public void setUpdateAt(Timestamp updateAt) {
-		this.updateAt = updateAt;
-	}
+    public String getFristName() {
+        return fristName;
+    }
 
-	public Status getStatus() {
-		return status;
-	}
+    public void setFristName(String fristName) {
+        this.fristName = fristName;
+    }
 
-	public void setStatus(Status status) {
-		this.status = status;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", fristName=" + fristName + ", lastName=" + lastName + ", businessMail="
-				+ businessMail + ", phoneNumber=" + phoneNumber + ", role=" + role + ", companyName=" + companyName
-				+ ", createdAt=" + createdAt + ", updateAt=" + updateAt + ", status=" + status + "]";
-	}
-	
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getBusinessMail() {
+        return businessMail;
+    }
+
+    public void setBusinessMail(String businessMail) {
+        this.businessMail = businessMail;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() { 
+        return password;
+    }
+
+    public void setPassword(String password) { 
+        this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public CompanyName getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(CompanyName companyName) {
+        this.companyName = companyName;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Timestamp updateAt) {
+        this.updateAt = updateAt;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", employeeId=" + employeeId + ", fristName=" + fristName + ", lastName="
+                + lastName + ", businessMail=" + businessMail + ", phoneNumber=" + phoneNumber + ", password=****"
+                + ", role=" + role + ", companyName=" + companyName + ", createdAt=" + createdAt + ", updateAt="
+                + updateAt + ", status=" + status + "]";
+    }
 }

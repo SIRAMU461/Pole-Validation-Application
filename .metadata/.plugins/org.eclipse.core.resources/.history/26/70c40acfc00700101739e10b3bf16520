@@ -1,0 +1,22 @@
+package com.pva.user.serviceimpl;
+
+import org.springframework.stereotype.Service;
+
+import com.pva.user.dto.UserDTO;
+import com.pva.user.repository.UserRepository;
+import com.pva.user.service.UserService;
+
+
+@Service
+public class UserServiceImpl  implements UserService{
+
+	private final UserRepository userRepository ;
+	
+	
+	
+	
+	
+	
+	
+	
+}
